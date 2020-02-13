@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+                     targetNamespace="http://example.com/courses"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/courses"
+>
+  <xs:element name="GetCourseDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:int" name="id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetCourseDetailsResponse" >
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="CourseDetails" type="tns:CourseDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetAllCoursesDetailsRequest">
+    <xs:complexType>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetAllCoursesDetailsResponse" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CourseDetails" type="tns:CourseDetails" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="DeleteCourseRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:int" name="id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteCourseResponse" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence>
+          <xs:element type="tns:Status" name="status"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+<xs:simpleType name="Status">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="SUCCESS"/>
+    <xs:enumeration value="FAILURE"/>
+  </xs:restriction>
+</xs:simpleType>
+  <xs:complexType name="CourseDetails">
+    <xs:sequence>
+      <xs:element type="xs:int" name="id"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="description"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

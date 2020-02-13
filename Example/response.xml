@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GetCourseDetailsResponse xmlns="http://example.com/courses">
+    <id>123</id>
+    <name>Java</name>
+    <description>this is a new JAVA course</description>
+</GetCourseDetailsResponse>
